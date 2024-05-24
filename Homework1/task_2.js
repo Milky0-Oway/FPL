@@ -4,6 +4,7 @@ true or false as the result of checking if string is a palindrome or not
 
 function isPalindrom(text){
     text = text.toLowerCase();
+    text = text.replace(/[^a-z0-9]/g, '');
     for(let i = 0; i < text.length/2; i++){
         if(text[i] !== text[text.length-i-1]){
             return false;
@@ -15,3 +16,4 @@ function isPalindrom(text){
 console.log(isPalindrom("bbdshbv"));
 console.log(isPalindrom("aba"));
 console.log(isPalindrom("Aba"));
+console.log(isPalindrom("A man, a plan, a canal, Panama"));
