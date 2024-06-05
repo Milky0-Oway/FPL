@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import './Calendar.css';
+import Days from './Days';
 
 const Calendar = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(null);
-
-    const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
-
-    const firstDayOfMonth = (month, year) => new Date(year, month, 1).getDay();
 
     const handleDateChange = (e) => {
         const date = new Date(e.target.value);
@@ -15,45 +12,6 @@ const Calendar = () => {
             setCurrentDate(new Date(date.getFullYear(), date.getMonth(), 1));
             setSelectedDate(date);
         }
-    };
-
-    const renderDays = () => {
-        const days = [];
-        const year = currentDate.getFullYear();
-        const month = currentDate.getMonth();
-        const daysInCurrentMonth = daysInMonth(month, year);
-        const firstDay = firstDayOfMonth(month, year);
-        const prevMonthDays = daysInMonth(month - 1 < 0 ? 11 : month - 1, month - 1 < 0 ? year - 1 : year);
-
-        for (let i = firstDay - 1; i >= 0; i--) {
-            days.push(
-                <div key={`prev-${i}`} className="calendar-day empty">
-                    {prevMonthDays - i}
-                </div>
-            );
-        }
-
-        for (let day = 1; day <= daysInCurrentMonth; day++) {
-            const isSelected = selectedDate && selectedDate.getDate() === day && selectedDate.getMonth() === month && selectedDate.getFullYear() === year;
-            days.push(
-                <div key={day} className={`calendar-day ${isSelected ? 'selected' : ''}`}>
-                    {day}
-                </div>
-            );
-        }
-
-        const totalDays = firstDay + daysInCurrentMonth;
-        const nextMonthDays = (totalDays % 7 === 0) ? 0 : (7 - (totalDays % 7));
-
-        for (let i = 1; i <= nextMonthDays; i++) {
-            days.push(
-                <div key={`next-${i}`} className="calendar-day empty">
-                    {i}
-                </div>
-            );
-        }
-
-        return days;
     };
 
     const handlePrevMonth = () => {
@@ -86,7 +44,10 @@ const Calendar = () => {
                 <div className="calendar-day-name">Thu</div>
                 <div className="calendar-day-name">Fri</div>
                 <div className="calendar-day-name">Sat</div>
-                {renderDays()}
+                <Days
+                    currentDate={currentDate}
+                    selectedDate={selectedDate}
+                />
             </div>
         </div>
     );
