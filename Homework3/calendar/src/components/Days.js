@@ -1,4 +1,5 @@
 import React from 'react';
+import Notes from "./Notes";
 
 const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
 const firstDayOfMonth = (month, year) => new Date(year, month, 1).getDay();
@@ -18,15 +19,17 @@ const getPrevMonthDays = (month, year, firstDay) => {
     return days;
 };
 
-const getCurrentMonthDays = (month, year, selectedDate) => {
+const getCurrentMonthDays = (month, year, selectedDate, handleDateClick) => {
     const days = [];
     const daysInCurrentMonth = daysInMonth(month, year);
 
     for (let day = 1; day <= daysInCurrentMonth; day++) {
         const isSelected = selectedDate && selectedDate.getDate() === day && selectedDate.getMonth() === month && selectedDate.getFullYear() === year;
+        const date = new Date(year, month, day);
         days.push({
             date: day,
-            className: `calendar-day ${isSelected ? 'selected' : ''}`
+            className: `calendar-day ${isSelected ? 'selected' : ''}`,
+            onClick: () => handleDateClick(date)
         });
     }
     return days;
@@ -45,7 +48,7 @@ const getNextMonthDays = (totalDays) => {
     return days;
 };
 
-const Days = ({ currentDate, selectedDate }) => {
+const Days = ({ currentDate, selectedDate, handleDateClick }) => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     const firstDay = firstDayOfMonth(month, year);
@@ -54,15 +57,18 @@ const Days = ({ currentDate, selectedDate }) => {
 
     const days = [
         ...getPrevMonthDays(month, year, firstDay),
-        ...getCurrentMonthDays(month, year, selectedDate),
+        ...getCurrentMonthDays(month, year, selectedDate, handleDateClick),
         ...getNextMonthDays(totalDays)
     ];
 
     return (
         <>
             {days.map((day, index) => (
-                <div key={index} className={day.className}>
+                <div key={index} className={day.className} onClick={day.onClick}>
                     {day.date}
+                    {selectedDate && day.className !== 'calendar-day empty' && selectedDate.getDate() === day.date && selectedDate.getMonth() === month && (
+                        <Notes dateKey={`${year}-${month+1}-${day.date}`}/>
+                    )}
                 </div>
             ))}
         </>

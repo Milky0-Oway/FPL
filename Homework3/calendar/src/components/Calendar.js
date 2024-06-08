@@ -22,6 +22,12 @@ const Calendar = () => {
         setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
     };
 
+    const handleDateClick = (date) => {
+        setSelectedDate(date);
+        const dateString = new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+        document.getElementById("date-input").value = dateString;
+    };
+
     return (
         <div className="calendar-container">
             <div className="calendar-header">
@@ -35,6 +41,8 @@ const Calendar = () => {
                 type="date"
                 onChange={handleDateChange}
                 className="calendar-date-input"
+                id="date-input"
+                aria-label="Date"
             />
             <div className="calendar-grid">
                 <div className="calendar-day-name">Sun</div>
@@ -47,6 +55,7 @@ const Calendar = () => {
                 <Days
                     currentDate={currentDate}
                     selectedDate={selectedDate}
+                    handleDateClick={handleDateClick}
                 />
             </div>
         </div>

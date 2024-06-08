@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e0b5df93-7f10-4d42-a2ce-128091b00be0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/calendar/__tests__/Days.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/__tests__/Days.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/calendar/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Days.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Days.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,23 +40,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Study/EPIC/FPL",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "D:/Study/EPIC/FPL/Homework3/calendar/node_modules/react-scripts",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Study/EPIC/FPL&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;D:/Study/EPIC/FPL/Homework3/calendar/node_modules/react-scripts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Study\EPIC\FPL\Homework1" />
@@ -96,7 +97,9 @@
       <workItem from="1716562454397" duration="4917000" />
       <workItem from="1717489560695" duration="588000" />
       <workItem from="1717503890655" duration="716000" />
-      <workItem from="1717608763500" duration="3585000" />
+      <workItem from="1717608763500" duration="4005000" />
+      <workItem from="1717766543253" duration="5175000" />
+      <workItem from="1717831295645" duration="4071000" />
     </task>
     <servers />
   </component>

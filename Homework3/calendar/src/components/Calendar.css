@@ -1,13 +1,30 @@
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: relative;
+}
+
+.calendar-day.empty {
+    background-color: #f9f9f9;
+}
+
 .calendar-container {
-    max-width: 300px;
     margin: auto;
     text-align: center;
 }
 
 .calendar-header {
+    max-width: 300px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 42.2%;
 }
 
 .calendar-date-input {
@@ -15,25 +32,30 @@
     padding: 5px;
 }
 
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-}
-
-.calendar-day-name,
-.calendar-day {
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-.calendar-day.empty {
-    background-color: #f0f0f0;
-    color: #aaa;
-}
-
 .calendar-day.selected {
     background-color: #007bff;
     color: #fff;
     border: 2px solid #0056b3;
+}
+
+.note {
+    background-color: #0056b3;
+    margin-top: 5px;
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-input {
+    margin-top: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.note-input input {
+    flex: 1;
+}
+
+.note-input button {
+    flex-shrink: 0;
 }
