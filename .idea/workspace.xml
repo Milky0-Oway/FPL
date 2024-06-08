@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e0b5df93-7f10-4d42-a2ce-128091b00be0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/__tests__/Days.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/__tests__/Days.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Days.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Days.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Notes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,7 @@
       <workItem from="1717503890655" duration="716000" />
       <workItem from="1717608763500" duration="4005000" />
       <workItem from="1717766543253" duration="5175000" />
-      <workItem from="1717831295645" duration="4071000" />
+      <workItem from="1717831295645" duration="7583000" />
     </task>
     <servers />
   </component>

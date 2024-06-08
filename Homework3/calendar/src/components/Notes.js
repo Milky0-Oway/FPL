@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+
 import Note from "./Note";
 
 const Notes = ({dateKey}) => {
@@ -29,17 +30,20 @@ const Notes = ({dateKey}) => {
         setNotes(newNotes);
     };
 
+    const onRemove = index => ()=>handleRemoveNote(index);
+    const onChange = (e)=>setNoteInput((e.target.value));
+
     return(
         <div className='notes-container'>
             {notes[dateKey] && notes[dateKey].map((note, index) => (
-                <Note key={index} note={note} onRemove={()=>handleRemoveNote(index)}/>
+                <Note key={index} note={note} onRemove={onRemove(index)}/>
             ))}
             <div className='note-input'>
                 <input
                     type='text'
                     value={noteInput}
                     placeholder="Add a note"
-                    onChange={(e)=>setNoteInput((e.target.value))}
+                    onChange={onChange}
                 />
                 <button onClick={handleSaveNote}>Save</button>
             </div>

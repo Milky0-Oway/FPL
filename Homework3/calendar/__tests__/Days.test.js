@@ -1,11 +1,11 @@
 import React from 'react';
 import {fireEvent, render, screen} from '@testing-library/react';
-import Days from '../src/components/Days';
-import Calendar from "../src/components/Calendar";
 import '@testing-library/jest-dom';
 
-const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
-const firstDayOfMonth = (month, year) => new Date(year, month, 1).getDay();
+import Days from '../src/components/Days';
+import Calendar from "../src/components/Calendar";
+
+import {daysInMonth, firstDayOfMonth} from "../src/utils/dateHelpers";
 
 describe('Days component utility functions', () => {
     describe('daysInMonth', () => {

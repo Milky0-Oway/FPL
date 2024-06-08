@@ -15,16 +15,20 @@
 }
 
 .calendar-container {
-    margin: auto;
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .calendar-header {
+    width: 100%;
     max-width: 300px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 42.2%;
+    margin: 0 auto;
 }
 
 .calendar-date-input {
