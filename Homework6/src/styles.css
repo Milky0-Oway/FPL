@@ -1,0 +1,16 @@
+.add-task-form {
+    border: 1px black solid;
+    padding: 10px;
+}
+
+.filter {
+    border: 1px black solid;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.task-list {
+    border: 1px black solid;
+    margin-top: 20px;
+    padding: 10px;
+}
