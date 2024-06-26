@@ -14,3 +14,79 @@
     margin-top: 20px;
     padding: 10px;
 }
+
+.error {
+    border: 1px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: relative;
+}
+
+.calendar-day.empty {
+    background-color: #f9f9f9;
+}
+
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-header {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.calendar-date-input {
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.calendar-day.selected {
+    background-color: #007bff;
+    color: #fff;
+    border: 2px solid #0056b3;
+}
+
+.note {
+    background-color: #0056b3;
+    margin-top: 5px;
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-input {
+    margin-top: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.note-input input {
+    flex: 1;
+}
+
+.note-input button {
+    flex-shrink: 0;
+}

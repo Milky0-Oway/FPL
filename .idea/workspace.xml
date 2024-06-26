@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e0b5df93-7f10-4d42-a2ce-128091b00be0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Days.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Days.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/components/Notes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework3/calendar/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Homework3/calendar/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/AddTaskForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/AddTaskForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +22,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -41,24 +43,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Study/EPIC/FPL&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;D:/Study/EPIC/FPL/Homework3/calendar/node_modules/react-scripts&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Study/EPIC/FPL/Homework6/src/utils",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "D:/Study/EPIC/FPL/Homework3/calendar/node_modules/react-scripts",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\Study\\EPIC\\FPL\\Homework6\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\utils" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Study\EPIC\FPL\Homework1" />
     </key>
@@ -100,11 +106,20 @@
       <workItem from="1717503890655" duration="716000" />
       <workItem from="1717608763500" duration="4005000" />
       <workItem from="1717766543253" duration="5175000" />
-      <workItem from="1717831295645" duration="7583000" />
+      <workItem from="1717831295645" duration="8004000" />
+      <workItem from="1717868836348" duration="29000" />
+      <workItem from="1718912794649" duration="3812000" />
+      <workItem from="1719340182881" duration="286000" />
+      <workItem from="1719423389476" duration="10527000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Homework6/src/utils/dateHelpers.d.ts" />
+      </list>
+    </option>
   </component>
 </project>
