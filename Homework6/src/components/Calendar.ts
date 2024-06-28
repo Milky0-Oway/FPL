@@ -1,33 +1,71 @@
-import { getPreviousMonth, getNextMonth, formatDateString, daysInMonth, firstDayOfMonth } from '../utils/dateHelpers';
-import { getCurrentMonthDays, getPrevMonthDays, getNextMonthDays } from './Days';
+import {
+    getPreviousMonth,
+    getNextMonth,
+    formatDateString,
+    getNextMonthDaysCount,
+    firstDayOfMonth,
+    daysInMonth,
+    isSelectedDate,
+    getPrevMonth
+} from '../utils/dateHelpers';
+import Note from "./Note";
+import {DaysProps} from "./Days";
 
-interface Day {
+type DayName = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
+
+type Day = {
     date: number;
     className: string;
-}
-
-interface ClickableDay extends Day {
     onClick: () => void;
-}
+};
 
-interface CalendarProps {
-    onDateSelect: (date: Date) => void;
-    handleDateClick: (date: Date) => void;
-}
-
-export default class Calendar {
+export class Calendar {
     private currentDate: Date;
-    private selectedDate: Date | null;
+    private selectedDate?: Date | null;
     private inputRef: HTMLInputElement | null;
-    private onDateSelect: (date: Date) => void;
-    private handleDateClick: (date: Date) => void;
 
-    constructor(props: CalendarProps) {
-        this.currentDate = new Date();
-        this.selectedDate = null;
+    constructor({ currentDate, selectedDate, handleDateClick }: DaysProps) {
+        this.currentDate = currentDate;
+        this.selectedDate = selectedDate;
         this.inputRef = null;
-        this.onDateSelect = props.onDateSelect;
-        this.handleDateClick = props.handleDateClick;
+    }
+
+    public renderDays(): HTMLElement {
+        const year = this.currentDate.getFullYear();
+        const month = this.currentDate.getMonth();
+        const firstDay = firstDayOfMonth(month, year);
+        const daysInCurrentMonth = daysInMonth(month, year);
+        const totalDays = firstDay + daysInCurrentMonth;
+
+        const container = document.createElement('div');
+        container.className = 'calendar-grid';
+
+        const days = [
+            ...this.getPrevMonthDays(month, year, firstDay),
+            ...this.getCurrentMonthDays(month, year),
+            ...this.getNextMonthDays(totalDays)
+        ];
+
+        days.forEach((day) => {
+            const dayElement = document.createElement('div');
+            dayElement.className = day.className;
+            dayElement.textContent = day.date.toString();
+
+            if (day.onClick) {
+                dayElement.addEventListener('click', day.onClick);
+            }
+
+            if (this.selectedDate && isSelectedDate(this.selectedDate, day.date, month, year, day.className)) {
+                const noteElement = document.createElement('div');
+                const note = new Note({ note: `${year}-${month + 1}-${day.date}`, onRemove: () => {} });
+                noteElement.innerHTML = note.render();
+                dayElement.appendChild(noteElement);
+            }
+
+            container.appendChild(dayElement);
+        });
+
+        return container;
     }
 
     handleDateChange = (e: Event) => {
@@ -37,6 +75,10 @@ export default class Calendar {
             this.currentDate = new Date(date.getFullYear(), date.getMonth(), 1);
             this.selectedDate = date;
             this.render();
+        }
+        const dateInput = document.querySelector('#task-date') as HTMLInputElement | null;
+        if (dateInput) {
+            dateInput.value = formatDateString(date);
         }
     };
 
@@ -50,47 +92,20 @@ export default class Calendar {
         this.render();
     };
 
-    renderDays(): HTMLElement {
-        const year = this.currentDate.getFullYear();
-        const month = this.currentDate.getMonth();
-        const firstDay = firstDayOfMonth(month, year);
-        const daysInCurrentMonth = daysInMonth(month, year);
-        const totalDays = firstDay + daysInCurrentMonth;
+    handleDateClick = (date: Date) => {
+        this.selectedDate = date;
+        const dateInputt = document.querySelector('#date-input') as HTMLInputElement | null;
+        if (dateInputt) {
+            dateInputt.value = formatDateString(date);
+        }
+        const dateInput = document.querySelector('#task-date') as HTMLInputElement | null;
+        if (dateInput) {
+            dateInput.value = formatDateString(date);
+        }
+        this.render();
+    };
 
-        const days: (Day | ClickableDay)[] = [
-            ...getPrevMonthDays(month, year, firstDay),
-            ...getCurrentMonthDays(month, year, this.selectedDate, this.handleDateClick),
-            ...getNextMonthDays(totalDays)
-        ];
-
-        const fragment = document.createDocumentFragment();
-
-        days.forEach((day) => {
-            const dayElement = document.createElement('div');
-            dayElement.className = day.className;
-            dayElement.innerText = day.date.toString();
-            if ('onClick' in day) {
-                dayElement.addEventListener('click', day.onClick);
-            }
-            fragment.appendChild(dayElement);
-        });
-
-        const calendarGrid = document.createElement('div');
-        calendarGrid.className = 'calendar-grid';
-
-        const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        daysOfWeek.forEach(day => {
-            const dayElement = document.createElement('div');
-            dayElement.className = 'calendar-day-name';
-            dayElement.innerText = day;
-            calendarGrid.appendChild(dayElement);
-        });
-
-        calendarGrid.appendChild(fragment);
-        return calendarGrid;
-    }
-
-    render() {
+    public render(): HTMLElement {
         const container = document.createElement('div');
         container.className = 'calendar-container';
 
@@ -113,6 +128,7 @@ export default class Calendar {
         header.appendChild(nextButton);
 
         const dateInput = document.createElement('input');
+        dateInput.id = 'date-input'
         dateInput.type = 'date';
         dateInput.addEventListener('change', this.handleDateChange);
         this.inputRef = dateInput;
@@ -122,5 +138,50 @@ export default class Calendar {
         container.appendChild(this.renderDays());
 
         return container;
+    }
+
+    private getPrevMonthDays(month: number, year: number, firstDay: number) {
+        const days = [];
+        const { prevMonth, prevYear } = getPrevMonth(month, year);
+        const prevMonthDays = daysInMonth(prevMonth, prevYear);
+
+        for (let i = firstDay - 1; i >= 0; i--) {
+            days.push({
+                date: prevMonthDays - i,
+                className: "calendar-day empty",
+                onClick: () => {}
+            });
+        }
+        return days;
+    }
+
+    private getCurrentMonthDays(month: number, year: number): Day[] {
+        const days: Day[] = [];
+        const daysInCurrentMonth = daysInMonth(month, year);
+
+        for (let day = 1; day <= daysInCurrentMonth; day++) {
+            const isSelected = this.selectedDate ? isSelectedDate(this.selectedDate, day, month, year, '') : false;
+            const date = new Date(year, month, day);
+            days.push({
+                date: day,
+                className: `calendar-day ${isSelected ? 'selected' : ''}`,
+                onClick: () => this.handleDateClick(date)
+            });
+        }
+        return days;
+    }
+
+    private getNextMonthDays(totalDays: number): Day[] {
+        const days: Day[] = [];
+        const nextMonthDays = getNextMonthDaysCount(totalDays);
+
+        for (let i = 1; i <= nextMonthDays; i++) {
+            days.push({
+                date: i,
+                className: "calendar-day empty",
+                onClick: () => {}
+            });
+        }
+        return days;
     }
 }

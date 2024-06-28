@@ -1,20 +1,25 @@
-interface NoteProps {
+type NoteProps = {
     note: string;
     onRemove: () => void;
-}
-
-const renderNote = (props: NoteProps): HTMLElement => {
-    const { note, onRemove } = props;
-    const noteElement = document.createElement('div');
-    noteElement.className = 'note';
-    noteElement.innerText = note;
-
-    const removeButton = document.createElement('button');
-    removeButton.innerText = 'x';
-    removeButton.addEventListener('click', onRemove);
-
-    noteElement.appendChild(removeButton);
-    return noteElement;
 };
 
-export default renderNote;
+class Note {
+    private note: string;
+    private onRemove: () => void;
+
+    constructor({ note, onRemove }: NoteProps) {
+        this.note = note;
+        this.onRemove = onRemove;
+    }
+
+    render(): string {
+        return `
+            <div class="note">
+                ${this.note}
+                <button onclick="(${this.onRemove.toString()})()">x</button>
+            </div>
+        `;
+    }
+}
+
+export default Note;

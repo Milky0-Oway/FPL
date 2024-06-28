@@ -1,23 +1,24 @@
 import { Task } from '../types';
 import { Validator } from './Validator';
-import Calendar from "./Calendar";
-
-interface AddTaskFormProps {
-    onSubmit: (task: Task) => void;
-}
+import {Calendar} from "./Calendar";
 
 export class AddTaskForm {
     private validator: Validator;
     private onSubmit: (task: Task) => void;
     private selectedDate: Date | null;
+    private calendar: Calendar;
 
     constructor(onSubmit: (task: Task) => void) {
         this.onSubmit = onSubmit;
         this.validator = new Validator();
         this.selectedDate = null;
+        this.calendar = new Calendar({
+            currentDate: new Date(),
+            handleDateClick: this.handleDateClick
+        });
     }
 
-    handleDateClick = (date: Date) => {
+    private handleDateClick = (date: Date) => {
         this.selectedDate = date;
         const dateInput = document.querySelector('#task-date') as HTMLInputElement | null;
         if (dateInput) {
@@ -25,7 +26,7 @@ export class AddTaskForm {
         }
     };
 
-    handleSubmit = (event: Event) => {
+    private handleSubmit = (event: Event) => {
         event.preventDefault();
 
         const titleInput = document.querySelector('#task-title') as HTMLInputElement | null;
@@ -58,6 +59,11 @@ export class AddTaskForm {
             const form = document.querySelector('.add-task-form') as HTMLFormElement | null;
             if (form) {
                 form.reset();
+                dateInput.value = '';
+            }
+            const errorsContainer = document.querySelector('#validation-errors');
+            if (errorsContainer) {
+                errorsContainer.innerHTML = '';
             }
         } else {
             const errorsContainer = document.querySelector('#validation-errors');
@@ -73,7 +79,7 @@ export class AddTaskForm {
         }
     };
 
-    render() {
+    public render() {
         const form = document.createElement('form');
         form.className = 'add-task-form';
         form.addEventListener('submit', this.handleSubmit);
@@ -97,16 +103,7 @@ export class AddTaskForm {
 
         const calendarContainer = form.querySelector('#calendar-container');
         if (calendarContainer) {
-            const calendar = new Calendar({
-                onDateSelect: (date: Date) => {
-                    const dateInput = form.querySelector('#task-date') as HTMLInputElement | null;
-                    if (dateInput) {
-                        dateInput.value = date.toISOString().split('T')[0];
-                    }
-                },
-                handleDateClick: this.handleDateClick,
-            });
-            calendarContainer.appendChild(calendar.render());
+            calendarContainer.appendChild(this.calendar.render());
         }
 
         return form;

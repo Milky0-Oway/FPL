@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e0b5df93-7f10-4d42-a2ce-128091b00be0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework6/src/components/AddTaskForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/AddTaskForm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Calendar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Calendar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Days.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Days.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Note.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Note.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Notes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Notes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Validator.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework6/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,24 +44,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Study/EPIC/FPL/Homework6/src/utils",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "D:/Study/EPIC/FPL/Homework3/calendar/node_modules/react-scripts",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\Study\\EPIC\\FPL\\Homework6\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Study/EPIC/FPL/Homework6/src/utils&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;D:/Study/EPIC/FPL/Homework3/calendar/node_modules/react-scripts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Study\\EPIC\\FPL\\Homework6\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Study\EPIC\FPL\Homework6\src\utils" />
@@ -110,7 +111,8 @@
       <workItem from="1717868836348" duration="29000" />
       <workItem from="1718912794649" duration="3812000" />
       <workItem from="1719340182881" duration="286000" />
-      <workItem from="1719423389476" duration="10527000" />
+      <workItem from="1719423389476" duration="14209000" />
+      <workItem from="1719561320264" duration="11384000" />
     </task>
     <servers />
   </component>
@@ -120,6 +122,17 @@
       <list>
         <option value="$PROJECT_DIR$/Homework6/src/utils/dateHelpers.d.ts" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
 </project>

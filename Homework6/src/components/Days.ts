@@ -1,21 +1,13 @@
 import { daysInMonth, firstDayOfMonth, getPrevMonth, isSelectedDate, getNextMonthDaysCount } from '../utils/dateHelpers';
+import Note from "./Note";
 
-interface Day {
+type Day = {
     date: number;
     className: string;
-}
-
-interface ClickableDay extends Day {
     onClick: () => void;
-}
+};
 
-interface DaysProps {
-    currentDate: Date;
-    selectedDate: Date | null;
-    handleDateClick: (date: Date) => void;
-}
-
-export const getPrevMonthDays = (month: number, year: number, firstDay: number): Day[] => {
+const getPrevMonthDays = (month: number, year: number, firstDay: number): Day[] => {
     const days: Day[] = [];
     const { prevMonth, prevYear } = getPrevMonth(month, year);
     const prevMonthDays = daysInMonth(prevMonth, prevYear);
@@ -23,18 +15,19 @@ export const getPrevMonthDays = (month: number, year: number, firstDay: number):
     for (let i = firstDay - 1; i >= 0; i--) {
         days.push({
             date: prevMonthDays - i,
-            className: 'calendar-day empty'
+            className: "calendar-day empty",
+            onClick: () => {}
         });
     }
     return days;
 };
 
-export const getCurrentMonthDays = (month: number, year: number, selectedDate: Date | null, handleDateClick: (date: Date) => void): ClickableDay[] => {
-    const days: ClickableDay[] = [];
+const getCurrentMonthDays = (month: number, year: number, selectedDate: Date | null, handleDateClick: (date: Date) => void): Day[] => {
+    const days: Day[] = [];
     const daysInCurrentMonth = daysInMonth(month, year);
 
     for (let day = 1; day <= daysInCurrentMonth; day++) {
-        const isSelected = isSelectedDate(selectedDate, day, month, year, '');
+        const isSelected = selectedDate ? isSelectedDate(selectedDate, day, month, year, '') : false;
         const date = new Date(year, month, day);
         days.push({
             date: day,
@@ -45,64 +38,60 @@ export const getCurrentMonthDays = (month: number, year: number, selectedDate: D
     return days;
 };
 
-export const getNextMonthDays = (totalDays: number): Day[] => {
+const getNextMonthDays = (totalDays: number): Day[] => {
     const days: Day[] = [];
     const nextMonthDays = getNextMonthDaysCount(totalDays);
 
     for (let i = 1; i <= nextMonthDays; i++) {
         days.push({
             date: i,
-            className: 'calendar-day empty'
+            className: "calendar-day empty",
+            onClick: () => {}
         });
     }
     return days;
 };
 
-const isClickableDay = (day: Day | ClickableDay): day is ClickableDay => {
-    return 'onClick' in day;
+type DaysProps = {
+    currentDate: Date;
+    selectedDate?: Date | null;
+    handleDateClick: (date: Date) => void;
 };
 
-const renderDays = (props: DaysProps): HTMLElement => {
-    const { currentDate, selectedDate, handleDateClick } = props;
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-    const firstDay = firstDayOfMonth(month, year);
-    const daysInCurrentMonth = daysInMonth(month, year);
-    const totalDays = firstDay + daysInCurrentMonth;
+class Days {
+    private currentDate: Date;
+    private selectedDate: Date | null;
+    private handleDateClick: (date: Date) => void;
 
-    const days: (Day | ClickableDay)[] = [
-        ...getPrevMonthDays(month, year, firstDay),
-        ...getCurrentMonthDays(month, year, selectedDate, handleDateClick),
-        ...getNextMonthDays(totalDays)
-    ];
+    constructor({ currentDate, selectedDate = null, handleDateClick }: DaysProps) {
+        this.currentDate = currentDate;
+        this.selectedDate = selectedDate;
+        this.handleDateClick = handleDateClick;
+    }
 
-    const fragment = document.createDocumentFragment();
+    render(): string {
+        const year = this.currentDate.getFullYear();
+        const month = this.currentDate.getMonth();
+        const firstDay = firstDayOfMonth(month, year);
+        const daysInCurrentMonth = daysInMonth(month, year);
+        const totalDays = firstDay + daysInCurrentMonth;
 
-    days.forEach((day) => {
-        const dayElement = document.createElement('div');
-        dayElement.className = day.className;
-        dayElement.innerText = day.date.toString();
+        const days = [
+            ...getPrevMonthDays(month, year, firstDay),
+            ...getCurrentMonthDays(month, year, this.selectedDate, this.handleDateClick),
+            ...getNextMonthDays(totalDays)
+        ];
 
-        if (isClickableDay(day)) {
-            dayElement.addEventListener('click', day.onClick);
-        }
+        return days.map((day, index) => {
+            const isSelected = this.selectedDate ? isSelectedDate(this.selectedDate, day.date, month, year, day.className) : false;
+            return `
+                <div key=${index} class="${day.className}" ${day.onClick ? `onclick="(${day.onClick.toString()})()"` : ''}>
+                    ${day.date}
+                    ${isSelected ? `<div>${new Note({ note: `${year}-${month + 1}-${day.date}`, onRemove: () => {} }).render()}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+    }
+}
 
-        fragment.appendChild(dayElement);
-    });
-
-    const calendarGrid = document.createElement('div');
-    calendarGrid.className = 'calendar-grid';
-
-    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    daysOfWeek.forEach(day => {
-        const dayElement = document.createElement('div');
-        dayElement.className = 'calendar-day-name';
-        dayElement.innerText = day;
-        calendarGrid.appendChild(dayElement);
-    });
-
-    calendarGrid.appendChild(fragment);
-    return calendarGrid;
-};
-
-export default renderDays;
+export { Days, DaysProps };
