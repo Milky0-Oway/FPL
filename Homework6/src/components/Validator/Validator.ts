@@ -54,18 +54,15 @@ export class Validator {
 
     @withShowError()
     showError(error: string, inputElement: HTMLElement | null) {
+        const errorContainer = document.querySelector('#validation-errors');
         if (inputElement instanceof HTMLElement) {
             inputElement.classList.add('error');
-            let errorElement = inputElement.parentElement?.querySelector('.error-message') as HTMLElement;
-
-            if (!errorElement) {
-                errorElement = document.createElement('div');
-                errorElement.className = 'error-message';
-                inputElement.parentElement?.appendChild(errorElement);
-            }
-
-            console.log(error);
+            let errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
             errorElement.textContent = error;
+            if (errorContainer) {
+                errorContainer.appendChild(errorElement);
+            }
         } else {
             console.error('Invalid inputElement:', inputElement);
         }
@@ -81,6 +78,10 @@ export class Validator {
 
     validate(inputs: { [key: string]: HTMLElement | null }) {
         this.errors = {};
+        const errorContainer = document.querySelector('#validation-errors');
+        if (errorContainer) {
+            errorContainer.innerHTML = '';
+        }
         for (const [fieldName, inputElement] of Object.entries(inputs)) {
             if (inputElement && !(inputElement instanceof HTMLElement)) {
                 console.error('Invalid inputElement:', inputElement);

@@ -1,5 +1,3 @@
-import Note from "./Note";
-
 type NotesProps = {
     dateKey: string;
 };
@@ -53,29 +51,48 @@ class Notes {
         this.noteInput = input.value;
     }
 
-    render(): string {
-        const notesList = this.notes[this.dateKey]?.map((note, index) => {
-            const noteComponent = new Note({
-                note: note,
-                onRemove: this.onRemove(index),
-            });
-            return noteComponent.render();
-        }).join('') || '';
+    render(): HTMLElement {
+        const container = document.createElement('div');
+        container.className = 'notes-container';
 
-        return `
-            <div class='notes-container'>
-                ${notesList}
-                <div class='note-input'>
-                    <input
-                        type='text'
-                        value='${this.noteInput}'
-                        placeholder='Add a note'
-                        oninput='(${this.onChange.toString()})(event)'
-                    />
-                    <button onclick='(${this.handleSaveNote.toString()})()'>Save</button>
-                </div>
-            </div>
-        `;
+        const notesList = document.createElement('div');
+        notesList.className = 'notes-list';
+
+        if (this.notes[this.dateKey]) {
+            this.notes[this.dateKey].forEach((note, index) => {
+                const noteElement = document.createElement('div');
+                noteElement.className = 'note-item';
+                noteElement.textContent = note;
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'x';
+                removeButton.addEventListener('click', this.onRemove(index));
+
+                noteElement.appendChild(removeButton);
+                notesList.appendChild(noteElement);
+            });
+        }
+
+        const noteInputContainer = document.createElement('div');
+        noteInputContainer.className = 'note-input';
+
+        const noteInput = document.createElement('input');
+        noteInput.type = 'text';
+        noteInput.value = this.noteInput;
+        noteInput.placeholder = 'Add a note';
+        noteInput.addEventListener('input', this.onChange);
+
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+        saveButton.addEventListener('click', this.handleSaveNote);
+
+        noteInputContainer.appendChild(noteInput);
+        noteInputContainer.appendChild(saveButton);
+
+        container.appendChild(notesList);
+        container.appendChild(noteInputContainer);
+
+        return container;
     }
 }
 

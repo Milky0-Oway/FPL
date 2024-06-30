@@ -1,6 +1,6 @@
-import { Task } from '../types';
-import { Validator } from './Validator';
-import {Calendar} from "./Calendar";
+import { Task } from '../../types';
+import { Validator, Calendar } from '../';
+import {formatDateString} from "../../utils/dateHelpers";
 
 export class AddTaskForm {
     private validator: Validator;
@@ -20,9 +20,13 @@ export class AddTaskForm {
 
     private handleDateClick = (date: Date) => {
         this.selectedDate = date;
+        const dateInputt = document.querySelector('#date-input') as HTMLInputElement | null;
+        if (dateInputt) {
+            dateInputt.value = formatDateString(date);
+        }
         const dateInput = document.querySelector('#task-date') as HTMLInputElement | null;
         if (dateInput) {
-            dateInput.value = date.toISOString().split('T')[0];
+            dateInput.value = formatDateString(date);
         }
     };
 
@@ -64,17 +68,6 @@ export class AddTaskForm {
             const errorsContainer = document.querySelector('#validation-errors');
             if (errorsContainer) {
                 errorsContainer.innerHTML = '';
-            }
-        } else {
-            const errorsContainer = document.querySelector('#validation-errors');
-            if (errorsContainer) {
-                errorsContainer.innerHTML = '';
-                for (const error in this.validator.getErrors()) {
-                    const errorElement = document.createElement('div');
-                    errorElement.className = 'error-message';
-                    errorElement.innerText = this.validator.getErrors()[error];
-                    errorsContainer.appendChild(errorElement);
-                }
             }
         }
     };

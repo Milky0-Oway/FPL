@@ -1,4 +1,4 @@
-import { Task } from '../types';
+import { Task } from '../../types';
 
 export class TaskList {
     private taskListBody: HTMLTableSectionElement;

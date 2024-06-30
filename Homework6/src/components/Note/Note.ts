@@ -3,7 +3,7 @@ type NoteProps = {
     onRemove: () => void;
 };
 
-class Note {
+export class Note {
     private note: string;
     private onRemove: () => void;
 
@@ -21,5 +21,3 @@ class Note {
         `;
     }
 }
-
-export default Note;

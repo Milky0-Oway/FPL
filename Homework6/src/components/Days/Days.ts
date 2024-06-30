@@ -1,5 +1,4 @@
-import { daysInMonth, firstDayOfMonth, getPrevMonth, isSelectedDate, getNextMonthDaysCount } from '../utils/dateHelpers';
-import Note from "./Note";
+import { daysInMonth, firstDayOfMonth, getPrevMonth, isSelectedDate, getNextMonthDaysCount } from '../../utils/dateHelpers';
 
 type Day = {
     date: number;
@@ -87,7 +86,6 @@ class Days {
             return `
                 <div key=${index} class="${day.className}" ${day.onClick ? `onclick="(${day.onClick.toString()})()"` : ''}>
                     ${day.date}
-                    ${isSelected ? `<div>${new Note({ note: `${year}-${month + 1}-${day.date}`, onRemove: () => {} }).render()}</div>` : ''}
                 </div>
             `;
         }).join('');

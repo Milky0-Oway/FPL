@@ -7,9 +7,8 @@ import {
     daysInMonth,
     isSelectedDate,
     getPrevMonth
-} from '../utils/dateHelpers';
-import Note from "./Note";
-import {DaysProps} from "./Days";
+} from '../../utils/dateHelpers';
+import { DaysProps, Notes } from "../";
 
 type DayName = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
 
@@ -56,9 +55,8 @@ export class Calendar {
             }
 
             if (this.selectedDate && isSelectedDate(this.selectedDate, day.date, month, year, day.className)) {
-                const noteElement = document.createElement('div');
-                const note = new Note({ note: `${year}-${month + 1}-${day.date}`, onRemove: () => {} });
-                noteElement.innerHTML = note.render();
+                const note = new Notes({ dateKey: `${year}-${month + 1}-${day.date}` });
+                const noteElement = note.render();
                 dayElement.appendChild(noteElement);
             }
 
@@ -94,20 +92,25 @@ export class Calendar {
 
     handleDateClick = (date: Date) => {
         this.selectedDate = date;
-        const dateInputt = document.querySelector('#date-input') as HTMLInputElement | null;
-        if (dateInputt) {
-            dateInputt.value = formatDateString(date);
-        }
-        const dateInput = document.querySelector('#task-date') as HTMLInputElement | null;
+        const dateInput = document.querySelector('#date-input') as HTMLInputElement | null;
         if (dateInput) {
             dateInput.value = formatDateString(date);
+        }
+        const taskDateInput = document.querySelector('#task-date') as HTMLInputElement | null;
+        if (taskDateInput) {
+            taskDateInput.value = formatDateString(date);
         }
         this.render();
     };
 
     public render(): HTMLElement {
-        const container = document.createElement('div');
-        container.className = 'calendar-container';
+        let container = document.querySelector('.calendar-container');
+        if (container) {
+            container.innerHTML = '';
+        } else {
+            container = document.createElement('div');
+            container.className = 'calendar-container';
+        }
 
         const header = document.createElement('div');
         header.className = 'calendar-header';
@@ -128,16 +131,19 @@ export class Calendar {
         header.appendChild(nextButton);
 
         const dateInput = document.createElement('input');
-        dateInput.id = 'date-input'
+        dateInput.id = 'date-input';
         dateInput.type = 'date';
         dateInput.addEventListener('change', this.handleDateChange);
+        if (this.selectedDate) {
+            dateInput.value = formatDateString(this.selectedDate);
+        }
         this.inputRef = dateInput;
 
         container.appendChild(header);
         container.appendChild(dateInput);
         container.appendChild(this.renderDays());
 
-        return container;
+        return container as HTMLElement;
     }
 
     private getPrevMonthDays(month: number, year: number, firstDay: number) {
@@ -149,7 +155,7 @@ export class Calendar {
             days.push({
                 date: prevMonthDays - i,
                 className: "calendar-day empty",
-                onClick: () => {}
+                onClick: () => { }
             });
         }
         return days;
@@ -179,7 +185,7 @@ export class Calendar {
             days.push({
                 date: i,
                 className: "calendar-day empty",
-                onClick: () => {}
+                onClick: () => { }
             });
         }
         return days;

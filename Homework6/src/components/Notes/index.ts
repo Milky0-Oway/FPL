@@ -1,0 +1,1 @@
+export { Notes, NotesProps } from './Notes';

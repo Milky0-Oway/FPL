@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0b5df93-7f10-4d42-a2ce-128091b00be0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Homework6/src/components/Notes/Notes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/AddTaskForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/AddTaskForm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Calendar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Calendar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Days.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Days.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Note.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Note.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Notes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Notes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Validator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/AddTaskForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/AddTaskForm/AddTaskForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Calendar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Calendar/Calendar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Days.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Days/Days.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Note.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Note/Note.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Notes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/TaskFilter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/TaskFilter/TaskFilter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/TaskList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/TaskList/TaskList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Validator/Validator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework6/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,30 +47,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Study/EPIC/FPL/Homework6/src/utils&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;D:/Study/EPIC/FPL/Homework3/calendar/node_modules/react-scripts&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Study\\EPIC\\FPL\\Homework6\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Study/EPIC/FPL/Homework6/src/components",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "D:/Study/EPIC/FPL/Homework3/calendar/node_modules/react-scripts",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\Study\\EPIC\\FPL\\Homework6\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Study\EPIC\FPL\Homework6\src\utils" />
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\components" />
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\Validator" />
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\TaskList" />
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\TaskFilter" />
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\Notes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Study\EPIC\FPL\Homework1" />
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\Validator" />
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\TaskList" />
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\TaskFilter" />
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\Notes" />
+      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\Note" />
     </key>
   </component>
   <component name="RunManager">
@@ -112,7 +123,8 @@
       <workItem from="1718912794649" duration="3812000" />
       <workItem from="1719340182881" duration="286000" />
       <workItem from="1719423389476" duration="14209000" />
-      <workItem from="1719561320264" duration="11384000" />
+      <workItem from="1719561320264" duration="12028000" />
+      <workItem from="1719758883835" duration="5753000" />
     </task>
     <servers />
   </component>

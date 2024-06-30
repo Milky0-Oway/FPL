@@ -1,6 +1,4 @@
-import { AddTaskForm } from './components/AddTaskForm';
-import { TaskFilter } from './components/TaskFilter';
-import { TaskList } from './components/TaskList';
+import { AddTaskForm, TaskList, TaskFilter } from './components/';
 import { Task } from './types';
 
 class TodoApp {
