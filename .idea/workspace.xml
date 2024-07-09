@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0b5df93-7f10-4d42-a2ce-128091b00be0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Homework6/src/components/Notes/Notes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/AddTaskForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/AddTaskForm/AddTaskForm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Calendar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Calendar/Calendar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Days.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Days/Days.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Note.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Note/Note.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Notes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/TaskFilter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/TaskFilter/TaskFilter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/TaskList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/TaskList/TaskList.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/components/Validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/components/Validator/Validator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +19,8 @@
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -74,11 +65,11 @@
       <recent name="D:\Study\EPIC\FPL\Homework6\src\components\Notes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Study\EPIC\FPL\Homework9\converter\src\components" />
+      <recent name="D:\Study\EPIC\FPL\Homework9\converter\src" />
       <recent name="D:\Study\EPIC\FPL\Homework6\src\components\Validator" />
       <recent name="D:\Study\EPIC\FPL\Homework6\src\components\TaskList" />
       <recent name="D:\Study\EPIC\FPL\Homework6\src\components\TaskFilter" />
-      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\Notes" />
-      <recent name="D:\Study\EPIC\FPL\Homework6\src\components\Note" />
     </key>
   </component>
   <component name="RunManager">
@@ -124,7 +115,8 @@
       <workItem from="1719340182881" duration="286000" />
       <workItem from="1719423389476" duration="14209000" />
       <workItem from="1719561320264" duration="12028000" />
-      <workItem from="1719758883835" duration="5753000" />
+      <workItem from="1719758883835" duration="6444000" />
+      <workItem from="1720455532374" duration="9172000" />
     </task>
     <servers />
   </component>
