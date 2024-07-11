@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {Button, Box} from '@mui/material';
 import {useFetch} from "../utils/useFetch";
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
+import {useHistory} from "../context/ContextProvider";
 
 export const Converter = () => {
     const [amount, setAmount] = useState(0);
@@ -16,6 +17,8 @@ export const Converter = () => {
     const [label2, setLabel2] = useState('');
     const [label3, setLabel3] = useState('');
     const [label4, setLabel4] = useState('');
+
+    const {history, dispatch} = useHistory();
 
     useEffect(() => {
         if (from) {
@@ -39,13 +42,20 @@ export const Converter = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log(data);
         if (data) {
             const result = data[from][to] * amount;
             setLabel1(`${amount} ${from} = `);
             setLabel2(`${result} ${to}`);
             setLabel3(`1 ${from} = ${data[from][to]} ${to}`);
             setLabel4(`1 ${to} = ${1/data[from][to]} ${from}`);
+
+            dispatch({
+                type: 'ADD',
+                payload: {
+                    date: new Date().toLocaleString(),
+                    operation: `${amount} ${from} = ${result} ${to}`
+                }
+            });
         }
     }
 
@@ -56,15 +66,7 @@ export const Converter = () => {
     }
 
     return(
-        <Box
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '20px',
-                padding: '20px',
-                backgroundColor: 'aliceblue',
-                minHeight: '100vh'
-            }}>
+        <Box>
             <Text label='I want to convert' variant='h3' color='black'/>
             <form onSubmit={handleSubmit}>
                 <Box
