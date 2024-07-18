@@ -2,7 +2,10 @@ import React, {createContext, useReducer, useContext, PropsWithChildren} from 'r
 
 type Operation = {
     date: string;
-    operation: string;
+    from: string;
+    amount: number;
+    to: string;
+    result: number;
 }
 
 type Action = {

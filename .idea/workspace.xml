@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0b5df93-7f10-4d42-a2ce-128091b00be0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework9/converter/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework9/converter/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework9/converter/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Homework9/converter/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework9/converter/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Homework9/converter/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework9/converter/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Homework9/converter/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework9/converter/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Homework9/converter/src/index.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="e0b5df93-7f10-4d42-a2ce-128091b00be0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,8 +16,8 @@
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -122,7 +114,7 @@
       <workItem from="1719561320264" duration="12028000" />
       <workItem from="1719758883835" duration="6444000" />
       <workItem from="1720455532374" duration="18475000" />
-      <workItem from="1720699016445" duration="1832000" />
+      <workItem from="1720699016445" duration="9670000" />
     </task>
     <servers />
   </component>

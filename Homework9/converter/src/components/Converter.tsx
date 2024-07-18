@@ -53,7 +53,10 @@ export const Converter = () => {
                 type: 'ADD',
                 payload: {
                     date: new Date().toLocaleString(),
-                    operation: `${amount} ${from} = ${result} ${to}`
+                    from: from,
+                    amount: amount,
+                    to: to,
+                    result: result
                 }
             });
         }
